@@ -1,0 +1,64 @@
+
+1.Does any of the above three components play a role in the defining the Precession of the number ? If so which are the component or Components  which play the  role in defining precession  and how ? Explain this with example in your own words.
+
+Ans: Precision is the smallest possible change that can be achieved in floating point number. 
+Fractional part plays a role in the defining the Precession of the floating point number. 
+No. of bits required in Exponent and fractional part differs as per the precission of the number. whereas in both cases only 1bit required for sign bit.
+a. Single Precission: 23bits for mantissa and 8bits for Exponent
+0.85 --> 0  	01111110  	10110011001100110011010
+        sign  Exponent            mantissa
+
+b. Double Precission: 55bits for mantissa and 11bits for Exponent
+
+0.85 --> 0    01111111110  	1011001100110011001100110011001100110011001100110011
+        sign   Exponent                         mantissa
+        
+        
+2.What is Normal and Subnormal  Values as per IEEE 754  standards  explain this  with the  help of number line.
+
+Ans: Floating numbers which does not contain leading zeros in fractional part are called as Normal values. eg. 0.0000011 will be 1.1x10^-6.
+If we consider 32bit floating point number, exponent is of 8bits i.e it can represent values of limited range within that. So, the values in which after moving leading zeros to exponent, it crosses its minimum limit. i.e. very small values which are very near to zero
+
+
+3.IEEE 754vv defines standards for rounding floating points numbers to a represent able value. There are five methods defines by IEEE for this â€“ Take time and  understand what these five methods and explain it in your words using diagrams, illustrations of your own.
+
+Ans:
+1.Round to nearest, ties to even  : The value is rounded to the nearest i.e closest value between two possible values based on accuracy. In case, if value is exactly in half between two values then it will be rounded to least value.
+eg.
+1.87 = 1.9
+1.84 = 1.8
+1.85 = 1.8
+
+2.Round to nearest, ties away from zero  : The value is rounded to the value which is away from zero, between two possible values . In case, if value is exactly in half between two values then it will be rounded to least value.
+eg.
+1.87 = 1.9
+1.84 = 1.9
+1.85 = 1.9
+-1.85 = -1.9
+
+2.Round up : The value is rounded to the largest value between two possible values.
+1.87 = 1.9
+1.84 = 1.9
+1.85 = 1.9
+-1.85 = -1.8
+
+3.Round down : The value is rounded to the smallest value between two possible values.
+1.87 = 1.8
+1.84 = 1.8
+1.85 = 1.8
+-1.85 = -1.9
+
+4.Round towards zero : The value is rounded to the value which is near to zero.
+1.87 = 1.8
+1.84 = 1.8
+1.85 = 1.8
+-1.85 = -1.8
+
+
+References:
+https://www.ias.ac.in/article/fulltext/reso/021/01/0011-0030
+https://docs.oracle.com/cd/E19957-01/806-3568/ncg_math.html
+https://www.packtpub.com/mapt/book/application_development/9781787125704/15/ch05lvl1sec030/subnormal-numbers
+https://en.wikipedia.org/wiki/IEEE_754
+https://blog.angularindepth.com/how-to-round-binary-fractions-625c8fa3a1af
+
