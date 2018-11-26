@@ -19,7 +19,7 @@ __main  FUNCTION
 		;Considering 10 X 10 
 		LDR r0 , =0x2000000A   ;starting address
 		LDR r1 , =0x2000006D   ;end address
-		LDR r3 , =0x2000000A	; focus location pushing on stack for demo purpose
+		LDR r3 , =0x20000042	; focus location pushing on stack for demo purpose
 		PUSH {r3}
 		MOV r5 , #5				;5 represents crossline data i.e data for red color
 		POP {r6}				;r6=Xpixel = start add and r7=Ypixel = start add
@@ -32,9 +32,11 @@ COUNTY
 		SUBGT r7, r7 , #0x0000000A
 		BGT COUNTY 
 		SUB r9 , r0 , r7	; r9 represents no. of locations required to go to start of y axis
+		LDR r4 , =0
 		MOV r2, #10
-		;CMP r9 , #5
-		SUB r9 , r2 , r9
+		CMP r9 ,r4
+		IT GT
+		SUBGT r9 , r2 , r9
 		;SUBGT r9 , r9 , r2
 		SUB r8 , r8 , r9	;r8 represents starting location of y axis
 		
